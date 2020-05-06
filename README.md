@@ -20,8 +20,8 @@
 
 ### Association
 - has_many :messages
-- has_many :groups
-- belongs_to :user
+- has_many :groups_users
+- has_many :groups thorough: group_users
 
 ## groupsテーブル
 |Column|Type|Options|
