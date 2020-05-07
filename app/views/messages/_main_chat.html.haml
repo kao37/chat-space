@@ -1,0 +1,22 @@
+.main
+  .main__chat-header
+    .main__chat-header--group
+      %p.group-name GroupName
+      %p.member Member 
+    .main__chat-header--edit
+      =link_to "#" do 
+        Edit
+  .main__contents
+    .main__contents--message
+      %span.username 下中
+      %span.time 2020/05/07(Thu) 12:11:05
+      %p.content お昼だよ
+
+  .main__chat-form
+    .main__chat-form--box
+      %form.new-message
+        %input{type:"text",class:"content-form",placeholder:"type a message"}
+        %label{class:"image"}
+          =icon('far','image')
+          %input{type:"file",class:"file"}
+        %input{type:"submit",class:"submit-btn",value:"Send"} 
