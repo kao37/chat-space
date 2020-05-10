@@ -1,22 +1,32 @@
 .main
   .main__chat-header
     .main__chat-header--group
-      %p.group-name GroupName
-      %p.member Member 
+      %p.group-name
+        = @group.name
+      %p.member
+      -@group.users.each do |user|
+        %span.chat-header__user.member
     .main__chat-header--edit
-      =link_to "#" do 
-        Edit
-  .main__contents
-    .main__contents--message
-      %span.username 下中
-      %span.time 2020/05/07(Thu) 12:11:05
-      %p.content お昼だよ
+      =link_to 'Edit', edit_group_path(@group), class: 'right-header__button'
+        
+  .messages
+    = render @messages
 
   .main__chat-form
     .main__chat-form--box
       %form.new-message
-        %input{type:"text",class:"content-form",placeholder:"type a message"}
-        %label{class:"image"}
-          =icon('far','image')
-          %input{type:"file",class:"file"}
-        %input{type:"submit",class:"submit-btn",value:"Send"} 
+      .form
+        = form_for [@group, @message] do |f|
+          = f.text_field :content, class: ' form__message ', placeholder: ' type a message '
+          .form__mask
+            = f.label :image, class: 'form__mask__image' do
+              = icon('fas', 'image', class: 'icon')
+              = f.file_field :image, class: 'hidden'
+          = f.submit 'Send', class: 'form__submit'
+  -#     %p.member
+  -#     -@group.users.each do |user|
+  -#       %span.chat-header__user.member
+  -#   .main__chat-header--edit
+  -#     =link_to 'Edit', edit_group_path(@group), class: 'right-header__button'
+        
+  -# .messages

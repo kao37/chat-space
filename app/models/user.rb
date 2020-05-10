@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :group_users
   has_many :groups, through: :group_users
-  # これいるのかhttps://master.tech-camp.in/curriculums/2671↑
+  has_many :messages
+  
   
 end
