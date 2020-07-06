@@ -1,5 +1,3 @@
-# README
-
 #### アプリ名：chat-space(チャットスペース)
 ![チャットスペース](https://user-images.githubusercontent.com/64763739/86558997-ce46cc00-bf95-11ea-92d0-07fa05f7e371.png)
 
